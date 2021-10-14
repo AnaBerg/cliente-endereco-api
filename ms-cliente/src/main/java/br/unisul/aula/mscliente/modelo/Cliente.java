@@ -1,13 +1,29 @@
 package br.unisul.aula.mscliente.modelo;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "tb_cliente")
 public class Cliente {
+	@Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+	@Column(nullable = false)
     private String nome;
     private Long endereco_id;
     private String complemento;
     private Integer numero;
 
     public Cliente() {
+    }
+    
+    public Cliente(Long id, String nome, Long endereco_id, String complemento, Integer numero) {
+    	this.id = id;
+    	this.nome = nome;
+    	this.endereco_id = endereco_id;
+    	this.complemento = complemento;
+    	this.numero = numero;
+    	
     }
 
     public Long getId() {
